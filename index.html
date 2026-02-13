@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulador de Algoritmos de Asignación de Memoria</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Simulador de Asignación de Memoria</h1>
+        <p class="subtitle">Best Fit vs Worst Fit</p>
+
+        <div class="controls">
+            <h2 style="margin-bottom: 20px; color: #38bdf8;">Configuración</h2>
+            
+            <div class="control-group">
+                <label>Bloques de Memoria (tamaños separados por comas):</label>
+                <input type="text" id="memoryBlocks" value="100, 500, 200, 300, 600" placeholder="Ej: 100, 500, 200">
+            </div>
+
+            <div class="control-group">
+                <label>Procesos a Asignar (tamaños separados por comas):</label>
+                <input type="text" id="processes" value="212, 417, 112, 426" placeholder="Ej: 212, 417, 112">
+            </div>
+
+            <div class="button-group">
+                <button class="btn-primary" onclick="initializeMemory()">Inicializar Memoria</button>
+                <button class="btn-secondary" onclick="runSimulation()">Ejecutar Simulación</button>
+                <button class="btn-primary" onclick="stepByStep()">Paso a Paso</button>
+                <button class="btn-danger" onclick="reset()">Limpiar</button>
+            </div>
+        </div>
+
+        <div class="process-list" id="processList"></div>
+
+        <div class="simulation-area">
+            <div class="algorithm-section">
+                <h2>Best Fit</h2>
+                <div class="memory-container" id="bestFitMemory"></div>
+            </div>
+
+            <div class="algorithm-section">
+                <h2>Worst Fit</h2>
+                <div class="memory-container" id="worstFitMemory"></div>
+            </div>
+        </div>
+
+        <div class="stats">
+            <h2>Estadísticas y Comparación</h2>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-value" id="bestFitAllocated">0</div>
+                    <div class="stat-label">Best Fit - Asignados</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value" id="bestFitFragmentation">0</div>
+                    <div class="stat-label">Best Fit - Fragmentación</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value" id="worstFitAllocated">0</div>
+                    <div class="stat-label">Worst Fit - Asignados</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value" id="worstFitFragmentation">0</div>
+                    <div class="stat-label">Worst Fit - Fragmentación</div>
+                </div>
+            </div>
+
+            <div class="comparison" id="comparisonSection"></div>
+        </div>
+
+        <!-- Sección de Información Personal -->
+        <div class="footer">
+            <h3>Información del Estudiante</h3>
+            <div class="footer-divider"></div>
+            <div class="footer-content">
+                <div class="footer-item">
+                    <strong>Nombre Completo:</strong>
+                    <span>Enrique Zavala</span>
+                </div>
+                <div class="footer-item">
+                    <strong>Matrícula:</strong>
+                    <span>SW2509057</span>
+                </div>
+                <div class="footer-item">
+                    <strong>Materia:</strong>
+                    <span>Sistemas Operativos</span>
+                </div>
+                <div class="footer-item">
+                    <strong>Profesor:</strong>
+                    <span>Jorge Javier Pedroza Romero</span>
+                </div>
+                <div class="footer-item">
+                    <strong>Institución:</strong>
+                    <span>Tecnologico de Software</span>
+                </div>
+                <div class="footer-item">
+                    <strong>Fecha de Entrega:</strong>
+                    <span>13/02/2026</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
